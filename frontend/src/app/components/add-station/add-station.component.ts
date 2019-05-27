@@ -52,7 +52,7 @@ export class AddStationComponent implements OnInit {
               //Podem filtrar per tots els codis 2XX
               if (response.status == 200) {
                 const toast = await this.toastController.create({
-                  message: "Estación Añadida",
+                  message: "Station has been added",
                   duration: 2000,
                   position: 'bottom',
                 });
@@ -67,7 +67,7 @@ export class AddStationComponent implements OnInit {
               //Podem filtrar per tots els altres codis
               if (err.status == 400) {
                 const toast = await this.toastController.create({
-                  message: "Ya existe una estación con este nombre",
+                  message: "There is an station with that name already",
                   duration: 2000,
                   position: 'bottom',
                 });

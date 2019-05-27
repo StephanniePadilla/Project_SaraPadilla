@@ -1,11 +1,12 @@
 ion-content{
-  --background:  url('/assets/img/background2.png') center / 100%;
+  --background:  url('/assets/img/background4.png') center / 100%;
 }
 
   ion-list{
     background: rgba(197, 239, 247, 1);
     color: rgba(8, 24, 27);
     }
+
   img{
   position: center;
   size: 5px;

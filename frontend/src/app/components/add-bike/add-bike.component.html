@@ -3,14 +3,14 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Add Bike</ion-title>
+    <ion-title style="padding-left:20px">Add New Bike</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="limiter">
-    <div style="background: url('/assets/img/background2.png')" class="container-login100">
-      <div class="wrap-login100 p-l-15 p-r-15 p-t-15 p-b-15">
+    <div style="background: url('/assets/img/background4.png')" class="container-login100">
+      <div style="background: url('/assets/img/background2.png')" class="wrap-login100 p-l-15 p-r-15 p-t-15 p-b-15">
         <form class="login100-form validate-form">
           <span class="login100-form-title p-b-49">
             Add unassigned bike
@@ -38,7 +38,11 @@
           <div class="container-login100-form-btn">
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
-              <ion-button color="primary" (click)="addBike()" [disabled]="Form.invalid" expand="block">Add Bike</ion-button>
+              <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="addBike()"
+                          [disabled]="Form.invalid"  [style.backgroundColor]="enable ? '#00CC00' : '#FF0000'">
+                <ion-icon  style="padding-right:15px" size="large" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+                Add New Bike
+              </ion-button>
             </div>
           </div>
         </form>

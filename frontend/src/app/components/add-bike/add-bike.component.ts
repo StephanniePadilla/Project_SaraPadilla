@@ -60,7 +60,7 @@ export class AddBikeComponent implements OnInit {
               //Podem filtrar per tots els codis 2XX
               if (response.status == 200) {
                 const toast = await this.toastController.create({
-                  message: "Bici Añadida",
+                  message: "Bike added",
                   duration: 2000,
                   position: 'bottom',
                 });
@@ -75,7 +75,7 @@ export class AddBikeComponent implements OnInit {
               //Podem filtrar per tots els altres codis
               if (err.status == 400) {
                 const toast = await this.toastController.create({
-                  message: "Ya existe una bici con este nombre",
+                  message: "There is a bike with that name already",
                   duration: 2000,
                   position: 'bottom',
                 });

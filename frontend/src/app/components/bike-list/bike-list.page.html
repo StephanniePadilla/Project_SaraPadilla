@@ -1,17 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Lista de Bicis</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="padding-left:20px">Bike's List</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="limiter">
-    <div style="background: url('/assets/img/background2.png')" class="container-login100">
-      <div class="wrap-login100 p-l-20 p-r-20 p-t-20 p-b-20">
+    <div style="background: url('/assets/img/background4.png')" class="container-login100">
+      <div style="background: url('/assets/img/background2.png')" class="wrap-login100 p-l-20 p-r-20 p-t-20 p-b-20">
         <br>
         <!--Titol principal-->
         <span class="login100-form-title">
-		Lista de Bicis
+		Bike's List
         </span>
         <br>
         <!--Si la variable llista es diferent a Null, mostrem els titols de les columnes-->
@@ -22,7 +25,7 @@
           <ion-label>Assigned</ion-label>
           <ion-label></ion-label>
         </ion-list-header>
-          <ion-list *ngFor="let bike of llista">
+          <ion-list *ngFor="let bike of llista" style="background: url('/assets/img/background2.png')">
             <ion-item>
               <ion-label>{{bike.name}}</ion-label>
               <ion-label>{{bike.kms}}</ion-label>
@@ -34,14 +37,17 @@
         <div class="container-login100-form-btn">
           <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
-            <ion-button color="primary" (click)="order()"  expand="block">Order Bikes by KMs</ion-button>
-          </div>
-        </div>
-        <br>
-        </div>
+            <ion-button icon-left size="medium" expand="full" shape="round" color="dark"  (click)="order()" tappable>
+              <ion-icon size="large" ios="ios-reorder" md="md-reorder"></ion-icon>
+              Order Bikes by KMs
+            </ion-button>
+            </div>
+         </div>
+         <br>
+      </div>
     </div>
-    <ion-fab vertical="bottom" horizontal="center" slot="fixed" (click)="refresh()">
-      <ion-fab-button>
+    <ion-fab vertical="top" horizontal="left" slot="fixed" (click)="refresh()">
+      <ion-fab-button color="dark">
         <ion-icon name="refresh-circle"></ion-icon>
       </ion-fab-button>
     </ion-fab>

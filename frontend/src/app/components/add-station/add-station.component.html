@@ -3,17 +3,17 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Add Station</ion-title>
+    <ion-title style="padding-left:20px">Add Station</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="limiter">
-    <div style="background: url('/assets/img/background2.png')" class="container-login100">
-      <div class="wrap-login100 p-l-15 p-r-15 p-t-15 p-b-15">
+    <div style="background: url('/assets/img/background4.png')" class="container-login100">
+      <div style="background: url('/assets/img/background2.png')" class="wrap-login100 p-l-15 p-r-15 p-t-15 p-b-15">
         <form class="login100-form validate-form">
           <span class="login100-form-title p-b-49">
-            Add empty station
+            Add an empty station
           </span>
           <form [formGroup]="Form">
             <ion-list>
@@ -33,8 +33,12 @@
           <div class="container-login100-form-btn">
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
-              <ion-button color="primary" (click)="addStation()" [disabled]="Form.invalid" expand="block">Add Station</ion-button>
-            </div>
+              <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="addStation()"
+                          [disabled]="Form.invalid"  [style.backgroundColor]="enable ? '#00CC00' : '#FF0000'">
+                <ion-icon  style="padding-right:15px" size="large" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+                   Add Station
+              </ion-button>
+             </div>
           </div>
         </form>
         <br>
