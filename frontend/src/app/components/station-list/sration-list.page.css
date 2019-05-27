@@ -1,0 +1,77 @@
+ion-content{
+  --background:  url('/assets/img/background2.png') center / 100%;
+}
+
+  ion-list{
+    background: rgba(197, 239, 247, 1);
+    color: rgba(8, 24, 27);
+    }
+  img{
+  position: center;
+  size: 5px;
+  }
+
+  div {
+    /*background:  url('https://img.freepik.com/free-vector/blue-abstract-acrylic-brush-stroke-textured-background_53876-86373.jpg?size=626&ext=jpg') 40% 10%;*/
+    padding: 2em;
+    border-radius: 40px;
+    margin-bottom: 7px;
+    display: grid;
+  }
+  
+  p {
+    margin-left: 20px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+
+  ion-card {
+  position: relative;
+  text-align: left;
+ /* background:rgba(255,255,255,0.5);*/
+    --background:  url('http://getwallpapers.com/wallpaper/full/1/5/2/129510.jpg') 10% 60%;
+  /*rgba(red, green, blue, alpha)
+  --> alpha defines the opacity as a number
+  between 0.0 (fully transparent) and 1.0 (fully opaque)*/
+  }
+
+  .trash-btn{
+    background-size : 15px;
+    padding-right: 1cm;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: lightskyblue;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+
+  .logout {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .active {
+    --ion-text-color: var(--ion-color-primary);
+  }
+
+ion-item{
+    padding-left :20px;
+    font-size: large;
+  }
+
+  

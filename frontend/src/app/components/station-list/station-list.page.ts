@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { StationServices } from "../../services/station.services";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataService} from "../../services/data.services";
-import {ToastController} from "@ionic/angular";
+import {MenuController, ToastController} from "@ionic/angular";
 import {Station} from "../../models/station";
 
 @Component({
@@ -19,7 +19,10 @@ export class StationListPage implements OnInit {
   searchTerm: string = "";
 
   //Com a constructor, pasem els Services (on estaran implementades les funcions), el servei de Dades (per passar dades entre components) i el Router
-  constructor(private stationService: StationServices,private dataService:DataService, private router: Router,private activatedRoute:ActivatedRoute,public toastController: ToastController) {
+  constructor(private stationService: StationServices,private dataService:DataService,
+              private router: Router,private activatedRoute:ActivatedRoute,
+              /*private menu: MenuController,*/
+              public toastController: ToastController) {
     activatedRoute.params.subscribe(val => {
       this.refresh();
     });
@@ -101,6 +104,18 @@ export class StationListPage implements OnInit {
     }
 
   }
+/*
+  openMenu(){
+    this.menu.enable(true, 'station-list');
+    //this.router.navigateByUrl('/api/menu/' + this.user._id);
+    this.menu.open('station-list');
+    console.log("Abrir menu");
+  }
+
+  closeMenu(){
+    console.log("Cerrar Menu");
+    this.menu.close('station-list');
+  }*/
 
 
 }

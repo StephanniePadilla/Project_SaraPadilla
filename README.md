@@ -1,12 +1,6 @@
-# Primer Minim d'EA
+# API-REST
 
-This is a project based on MEAN stack, including a BackEnd using node.js mongoose and express and 
-a FrontEnd based on Angular.
-
-Per afagir una bici de mostrar i una estació podem fer:
-http://localhost:3001/api/afagirMostra
-http://localhost:3001/api/afagirMostra2
-
+This is an API-REST using node.js mongoose, express and angular 
 
 ---
 
@@ -21,7 +15,7 @@ http://localhost:3001/api/afagirMostra2
 
 ## Description
 
-The Stack MEAN, aims to create modern web applications with Javascript as the main language both Frontend and in the Backend and the Database.  In this course we will create a CRUD application that is a Single Page Applications or Applications of a single page using Angular in its version 6. and this will be hosted on a Nodejs server that will use Express as server side framework and Mongodb as Database.
+Write description of the project
 
 #### Technologies
 
@@ -40,6 +34,7 @@ Libraries:
 
 ```
 npm i
+npm install -g nodemon
 ```
 
 Run node project:
@@ -58,39 +53,40 @@ npm install --save-dev @angular-devkit/build-angular
 
 >The second command is used in order to avoid future errors
 
-Create new project:
+
+Run mongoDB:
 
 ```
-ng new <name>
+mongod
 ```
 
-Generate new component:
+>(2) Keep it running on a separate cmd while you are working on your project in order to see the changes  
 
-```
-ng g component <name>
-```
-
-Generate other angular stuff:
-
-```
-ng g class <name>
-ng g directive <name>
-ng g service <name>
-ng g guard <name>
-```
-
-Run the project on local server:
+Run the project on local server (for angular):
 
 ```
 ng serve --open
 ```
->CAUTION!: You have to be on .\frontend folder in order to run this line (2) Keep it running on a separate cmd while you are working on your project in order to see the changes   
+>CAUTION!: You have to be on .\frontend folder in order to run this line 
 
-Create a build and change environment:
+>(3) Keep it running on a separate cmd while you are working on your project in order to see the changes   
+
+Install ionic:
 
 ```
-ng build [--e=<name>]
+npm install cordoba
+npm install ionic
 ```
+>You have to be on your root user's directory
+
+Run the project on local server (for ionic):
+
+```
+ionic serve --open
+```
+>CAUTION!: You have to be on .\frontend folder in order to run this line 
+
+>(4) Keep it running on a separate cmd while you are working on your project in order to see the changes   
 
 #### Add-on
 
@@ -138,5 +134,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---
+
 ## Author Info
-Marc Llena 
+
+Sara Padilla

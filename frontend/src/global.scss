@@ -9,3 +9,412 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+// http://ionicframework.com/docs/theming/
+@import '../node_modules/@ionic/angular/css/core.css';
+@import '../node_modules/@ionic/angular/css/normalize.css';
+@import '../node_modules/@ionic/angular/css/structure.css';
+@import '../node_modules/@ionic/angular/css/typography.css';
+@import '../node_modules/@ionic/angular/css/display.css';
+
+@import '../node_modules/@ionic/angular/css/padding.css';
+@import '../node_modules/@ionic/angular/css/float-elements.css';
+@import '../node_modules/@ionic/angular/css/text-alignment.css';
+@import '../node_modules/@ionic/angular/css/text-transformation.css';
+@import '../node_modules/@ionic/angular/css/flex-utils.css';
+
+ion-item {
+  --ion-item-background: transparent;
+}
+
+// backgrounds //
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-light {
+  background-color: var(--ion-color-light);
+}
+
+.bg-dark {
+  background-color: var(--ion-color-dark);
+}
+
+.bg-primary {
+  background-color: var(--ion-color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--ion-color-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--ion-color-tertiary);
+}
+
+.bg-profile {
+  background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary))
+}
+
+.bg-main {
+  background-image: linear-gradient(-135deg, var(--ion-color-medium), var(--ion-color-light))
+}
+
+// Helpers //
+.w100 {
+  width: 100%;
+}
+
+.bold,
+.fw500 {
+  font-weight: 500 !important;
+}
+
+.fw700 {
+  font-weight: 700 !important;
+}
+
+.text08 {
+  font-size: .8rem;
+}
+
+.text1 {
+  font-size: 1rem !important;
+}
+
+.text12 {
+  font-size: 1.2rem;
+}
+
+.text15 {
+  font-size: 1.5rem;
+}
+
+.text20 {
+  font-size: 2rem;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-primary {
+  color: var(--ion-color-primary);
+}
+
+.text-secondary {
+  color: var(--ion-color-secondary);
+}
+
+.text-dark {
+  color: var(--ion-color-dark);
+}
+
+// menu //
+// Menu user profile
+ion-toolbar.user-profile {
+
+  .user-avatar {
+    width: 68px;
+    height: 68px;
+  }
+  .item-inner {
+    border-width: 0;
+  }
+}
+
+// Custom toolbar (overriding Shadow DOM)
+ion-toolbar {
+  &.ion-color-primary {
+    --ion-color-base: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary)) !important;
+  }
+}
+
+ion-header ion-toolbar {
+  --background: url('/assets/img/background.png') center / 100%;
+  --ion-text-color: white;
+}
+
+//Custom background
+ion-content{
+  --background: url('/assets/img/background2.png') center / 100%;
+}
+
+div{
+  --background: url('/assets/img/background2.png') center / 100%;
+}
+
+// Android card shadow
+ion-card {
+  &.sc-ion-card-md-h {
+    box-shadow: 0 2px 4px rgba(var(--ion-color-dark-rgb),.24);
+  }
+}
+
+// style for auth pages
+.auth-page {
+  background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
+
+  .grid {
+    padding: 0;
+    .col {
+      padding: 0;
+    }
+  }
+
+  .btn-group {
+    .button-ios,
+    .button-md {
+      border-radius: 0;
+      &:first-of-type {
+        border-radius: 2px 0 0 2px;
+      }
+      &:last-of-type {
+        border-radius: 0 2px 2px 0;
+      }
+    }
+  }
+
+  .auth-content {
+    margin: 0 5%;
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin: 20px auto 8px;
+      border-radius: 10%;
+      background: url("/assets/img/ionic4start-ico.png") no-repeat;
+      background-size: 100%;
+    }
+
+    .list-form {
+      padding: 0;
+      margin-bottom: 0;
+
+      ion-item {
+        background: none;
+        padding: 0;
+
+        &:first-child {
+          border-top: none;
+        }
+
+        &:after {
+          display: none;
+        }
+
+        ion-label {
+          font-size: 1em;
+          color: var(--ion-color-light);
+        }
+
+        input {
+          color: var(--ion-color-light);
+        }
+      }
+    }
+  }
+
+}
+
+//avatar
+ion-avatar {
+  &.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 250px;
+  }
+}
+
+ion-avatar {
+  &.right {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 250px;
+  }
+}
+
+// Custom Menu styles (overriding Shadow DOM)
+ion-menu {
+  ion-header {
+    ion-toolbar {
+      &.ion-color-dark {
+        --ion-color-base: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary)) !important;
+      }
+    }
+  }
+}
+
+.mto {
+  margin-top: 12px;
+  ion-icon {
+    margin-bottom: -2px;
+  }
+}
+
+
+:root {
+  --ion-color-gold: #ffd700;
+  --ion-color-gold-rgb: 255, 215, 0;
+  --ion-color-gold-contrast: #000000;
+  --ion-color-gold-contrast-rgb: 0, 0, 0;
+  --ion-color-gold-shade: #e0bd00;
+  --ion-color-gold-tint: #191970;
+}
+.ion-color-gold {
+  --ion-color-base: var(--ion-color-gold) !important;
+  --ion-color-base-rgb: var(--ion-color-gold-rgb) !important;
+  --ion-color-contrast: var(--ion-color-gold-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-gold-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-gold-shade) !important;
+  --ion-color-tint: var(--ion-color-gold-tint) !important;
+}
+
+//menu //
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  background-image: -webkit-linear-gradient(rgba(79,36,172, .85) 0%, rgba(79,36,172, .65) 100%);
+  background-image: linear-gradient(rgba(79,36,172, .85) 0%, rgba(79,36,172, .65) 100%);
+  &.in {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.menu-toggle {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -20px;
+  background-color: var(--ion-color-primary);
+  border-radius: 50%;
+  z-index: 101;
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  &.out {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    &:before {
+      -webkit-transition: all .15s ease-in-out;
+      transition: all .15s ease-in-out;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+  }
+}
+
+.menu-panel {
+  position: fixed;
+  width: 300px;
+
+  border-radius: 5%;
+  bottom: 80px;
+  left: 50%;
+  margin-left: -150px;
+  padding: 20px;
+  background-color: var(--ion-color-primary);
+  z-index: 102;
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  -webkit-transition-delay: .15s;
+  transition-delay: .15s;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  .menu-item {
+    margin: auto;
+    -webkit-box-flex: 1 0 30%;
+    -webkit-flex: 1 0 30%;
+    -moz-box-flex: 1 0 30%;
+    -moz-flex: 1 0 30%;
+    -ms-flex: 1 0 30%;
+    flex: 1 0 30%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    ion-icon {
+      margin: 0 auto;
+      text-align: center;
+      color: #fff;
+    }
+    span {
+      padding: 0;
+      margin: 0 0 auto 0;
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 500;
+      line-height: 18px;
+    }
+    &:active {
+      i {
+        color: rgb(221,65,53);
+        -webkit-transition: all .15s;
+        transition: all 0.15s;
+      }
+      span {
+        color: rgb(221,65,53);
+        -webkit-transition: all .15s;
+        transition: all .15s;
+      }
+    }
+  }
+  &.in {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    .popup-menu-item {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+      -webkit-transition-delay: .15s;
+      transition-delay: .15s;
+    }
+  }
+}
