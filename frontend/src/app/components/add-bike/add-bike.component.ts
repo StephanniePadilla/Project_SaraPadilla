@@ -65,6 +65,7 @@ export class AddBikeComponent implements OnInit {
                   position: 'bottom',
                 });
                 toast.present();
+                this.router.navigateByUrl('');
               } else {
                 //Error desconegut
                 console.log("Error");

@@ -9,12 +9,12 @@
 
 <ion-content>
   <div class="limiter">
-    <div style="background: url('/assets/img/background2.png')" class="container-login100">
-      <div class="wrap-login100 p-l-20 p-r-20 p-t-20 p-b-20">
+    <div style="background: url('/assets/img/background4.png')" class="container-login100">
+      <div style="background: url('/assets/img/background2.png')" class="wrap-login100 p-l-20 p-r-20 p-t-20 p-b-20">
         <br>
         <!--Titol principal-->
         <span class="login100-form-title">
-          {{stationName}} Current Bikes:
+          "{{stationName}}" Current Bikes:
         </span>
         <br>
         <ion-list-header *ngIf="bikesStation" >
@@ -26,24 +26,24 @@
           <ion-label></ion-label>
         </ion-list-header>
         <div *ngIf="bikesStation">
-          <ion-list *ngFor="let bike of bikesStation.bikes">
+          <ion-list *ngFor="let bike of bikesStation.bikes"  style="background: url('/assets/img/background2.png')">
             <ion-item>
               <ion-label>{{bike.name}}</ion-label>
               <ion-label>{{bike.kms}}</ion-label>
               <ion-label>{{bike.description}}</ion-label>
               <ion-label></ion-label>
               <ion-button class="list-buttons1" color="danger" (click)="botoDesAsignar(bike._id)" >
-                <ion-label style="padding-left:7px">Desasignar de la Estacion</ion-label>
+                <ion-label style="padding-left:7px">Desassign from Station</ion-label>
                 <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
               </ion-button>
             </ion-item>
           </ion-list>
         </div>
-        <ion-label *ngIf="bikesStation==false">No hay ninguna bici asociada a la estación: {{stationName}}</ion-label>
+        <ion-label *ngIf="bikesStation==false">There is not any bike assigned to the station: {{stationName}}</ion-label>
         <br>
         <br>
         <span class="login100-form-title">
-          Bicis sin asignar:
+          Bikes ready to assign:
         </span>
         <br>
         <ion-list-header *ngIf="unnasignedBikes" >
@@ -55,19 +55,19 @@
           <ion-label></ion-label>
         </ion-list-header>
         <div *ngIf="unnasignedBikes">
-          <ion-list *ngFor="let bike of unnasignedBikes">
+          <ion-list *ngFor="let bike of unnasignedBikes"  style="background: url('/assets/img/background2.png')">
             <ion-item>
               <ion-label>{{bike.name}}</ion-label>
               <ion-label>{{bike.kms}}</ion-label>
               <ion-label>{{bike.description}}</ion-label>
               <ion-button class="list-buttons2"  color="success"(click)="botoAsignar(bike._id)" >
-                <ion-label style="padding-left:7px" >Asignar a la Estacion</ion-label>
+                <ion-label style="padding-left:7px" >Assign to the Station</ion-label>
                 <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
               </ion-button>
             </ion-item>
           </ion-list>
         </div>
-        <ion-label *ngIf="unnasignedBikes==false">No hay ninguna bici sin asignar.</ion-label>
+        <ion-label *ngIf="unnasignedBikes==false">There is not any bike ready to assign</ion-label>
         <br>
       </div>
     </div>
