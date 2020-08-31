@@ -74,7 +74,7 @@ ng serve --open
 Install ionic:
 
 ```
-npm install cordoba
+npm install cordova
 npm install ionic
 ```
 >You have to be on your root user's directory
