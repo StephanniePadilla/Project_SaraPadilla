@@ -30,10 +30,10 @@
             <ion-item>
               <ion-label>{{resistance.name}}</ion-label>
               <ion-label>{{resistance.value}}</ion-label>
-              <ion-label>{{resistance.description}}</ion-label>
+              <ion-label class="ion-text-wrap">{{resistance.description}}</ion-label>
               <ion-label></ion-label>
               <ion-button class="list-buttons1" color="danger" (click)="botoDesAsignar(resistance._id)" >
-                <ion-label style="padding-left:7px">Desassign from Measurement</ion-label>
+                <ion-label style="padding-left:7px">Unassign from Measurement</ion-label>
                 <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
               </ion-button>
             </ion-item>
@@ -59,7 +59,7 @@
             <ion-item>
               <ion-label>{{resistance.name}}</ion-label>
               <ion-label>{{resistance.value}}</ion-label>
-              <ion-label>{{resistance.description}}</ion-label>
+              <ion-label class="ion-text-wrap">{{resistance.description}}</ion-label>
               <ion-button class="list-buttons2"  color="success"(click)="botoAsignar(resistance._id)" >
                 <ion-label style="padding-left:7px" >Assign to the Measurement</ion-label>
                 <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>

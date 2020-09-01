@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="padding-left:20px">Add New Resistance</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="limiter">
+    <div style="background: url('/assets/img/background4.png')" class="container-login100">
+      <div style="background: url('/assets/img/background2.png')" class="wrap-login100 p-l-15 p-r-15 p-t-15 p-b-15">
+        <form class="login100-form validate-form">
+          <span class="login100-form-title p-b-49">
+            Add unassigned resistance
+          </span>
+          <form [formGroup]="Form">
+            <ion-list>
+              <ion-item>
+                <ion-icon name="add" item-start></ion-icon>
+                <ion-label stacked>Name:</ion-label>
+                <ion-input formControlName="name" type="text" placeholder="Name"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="add" item-start></ion-icon>
+                <ion-label stacked>Value:</ion-label>
+                <ion-input formControlName="value" type="number" placeholder="Value"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="add" item-start></ion-icon>
+                <ion-label stacked>Description:</ion-label>
+                <ion-input formControlName="description" type="text" placeholder="Description"></ion-input>
+              </ion-item>
+            </ion-list>
+          </form>
+          <br>
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="addResistance()"
+                          [disabled]="Form.invalid"  [style.backgroundColor]="enable ? '#00CC00' : '#FF0000'">
+                <ion-icon  style="padding-right:15px" size="large" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+                Add New Resistance
+              </ion-button>
+            </div>
+          </div>
+        </form>
+        <br>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.form">
+            <div class="alert alert-danger" *ngIf="Form.get('name').hasError(validation.type) && (Form.get('name').dirty || Form.get('name').touched)">
+              <ion-label color="danger">{{validation.message}}</ion-label>
+            </div>
+            <div class="alert alert-danger" *ngIf="Form.get('value').hasError(validation.type) && (Form.get('value').dirty || Form.get('value').touched)">
+              <ion-label color="danger">{{validation.message}}</ion-label>
+            </div>
+            <div class="alert alert-danger" *ngIf="Form.get('description').hasError(validation.type) && (Form.get('description').dirty || Form.get('description').touched)">
+              <ion-label color="danger">{{validation.message}}</ion-label>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+

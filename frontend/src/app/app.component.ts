@@ -16,7 +16,7 @@ export class AppComponent {
     {
       title: 'Measurement List',
       url: '/measurement-list',
-      icon: 'home'
+      icon: 'clipboard'
     },
     {
       title: 'Resistance List',
@@ -26,7 +26,7 @@ export class AppComponent {
     {
       title: 'Add Measurement',
       url: '/add-measurement',
-      icon: 'add'
+      icon: 'add-circle'
     },
     {
       title: 'Add Resistance',

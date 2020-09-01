@@ -1,12 +1,13 @@
-<!-- insertar aqui menu heypey-->
-
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title style="padding-left:20px">Measurement List</ion-title>
+
+    <ion-item>
+    <ion-title style="padding-left:20px">Resistance's List</ion-title>
+    </ion-item>
+
   </ion-toolbar>
 </ion-header>
 
@@ -17,43 +18,36 @@
         <br>
         <!--Titol principal-->
         <span class="login100-form-title">
-		Measurement List
+		Resistance's List
         </span>
-        <br>
-        <ion-searchbar
-          [(ngModel)]="searchTerm"
-          (ionChange)="filterItems()"
-        ></ion-searchbar>
         <br>
         <!--Si la variable llista es diferent a Null, mostrem els titols de les columnes-->
         <ion-list-header *ngIf="llista" >
-          <ion-label>   Name</ion-label>
-          <ion-label>   State</ion-label>
+          <ion-label>.     Resistance</ion-label>
+          <ion-label>   Value</ion-label>
           <ion-label>   Description</ion-label>
-          <ion-label></ion-label>
+          <ion-label>   Assigned</ion-label>
           <ion-label></ion-label>
         </ion-list-header>
-        <ion-list *ngFor="let element of llista" style="background: url('/assets/img/background2.png')">
-          <ion-item>
-            <ion-label>{{element.name}}</ion-label>
-            <ion-label>{{element.state}}</ion-label>
-            <ion-label>{{element.description}}</ion-label>
-            <ion-button class="list-buttons" shape="round" expand="full" color="dark" (click)="botoLlista(element._id, element.name)" >
-              <ion-label style="padding-left:7px; padding-right:3px">  State </ion-label>
-              <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
-            </ion-button>
-          </ion-item>
-        </ion-list>
+          <ion-list *ngFor="let resistance of llista" style="background: url('/assets/img/background2.png')">
+            <ion-item>
+              <ion-label>{{resistance.name}}</ion-label>
+              <ion-label>{{resistance.value}}</ion-label>
+              <ion-label class="ion-text-wrap">{{resistance.description}}</ion-label>
+              <ion-label>{{resistance.assigned}}</ion-label>
+            </ion-item>
+          </ion-list>
         <br>
         <div class="container-login100-form-btn">
           <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
             <ion-button icon-left size="medium" expand="full" shape="round" color="dark"  (click)="order()" tappable>
               <ion-icon size="large" ios="ios-reorder" md="md-reorder"></ion-icon>
-              Alphabetically Order
+              Order Resistances by Values
             </ion-button>
-          </div>
-        </div>
+            </div>
+         </div>
+         <br>
       </div>
     </div>
     <ion-fab vertical="top" horizontal="left" slot="fixed" (click)="refresh()">
@@ -61,6 +55,7 @@
         <ion-icon name="refresh-circle"></ion-icon>
       </ion-fab-button>
     </ion-fab>
+
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
