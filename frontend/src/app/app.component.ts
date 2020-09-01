@@ -32,7 +32,13 @@ export class AppComponent {
       title: 'Add Resistance',
       url: '/add-resistance',
       icon: 'add'
+    },
+    {
+      title: 'Calculate time',
+      url: '/calculate-time',
+      icon: 'stopwatch'
     }
+
   ];
 
   constructor(

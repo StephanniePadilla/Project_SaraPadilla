@@ -3,6 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {AddMeasurementComponent} from "./components/add-measurement/add-measurement.component";
 import {AddResistanceComponent} from "./components/add-resistance/add-resistance.component";
 import {MeasurementDetailComponent} from "./components/measurement-detail/measurement-detail.component";
+import {CalculateTimeComponent} from "./components/calculate-time/calculate-time.component";
+
 
 const routes: Routes = [
   {
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'add-measurement', component: AddMeasurementComponent},
   { path: 'add-resistance', component: AddResistanceComponent},
   { path: 'measurement-detail', component: MeasurementDetailComponent},
+  { path: 'calculate-time', component: CalculateTimeComponent},
+
 ];
 
 @NgModule({

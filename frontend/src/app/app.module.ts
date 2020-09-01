@@ -14,6 +14,8 @@ import {MeasurementDetailComponent} from "./components/measurement-detail/measur
 import {HttpClientModule} from "@angular/common/http";
 import {DataService} from "./services/data.services";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CalculateTimeComponent} from "./components/calculate-time/calculate-time.component";
+
 //import { MenuController } from '@ionic/angular';
 
 @NgModule({
@@ -22,6 +24,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
       AddMeasurementComponent,
       AddResistanceComponent,
       MeasurementDetailComponent,
+      CalculateTimeComponent,
   ],
   entryComponents: [],
   imports: [
