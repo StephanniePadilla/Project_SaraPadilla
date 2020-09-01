@@ -13,17 +13,17 @@ export class ResistanceServices {
     this.environment = new Environment();
   }
 
-  obtainUnnasignedBikes() {
-    return this.http.get(this.environment.url + "getUnnasignBikes", {observe: 'response'})
+  obtainUnnasignedResistances() {
+    return this.http.get(this.environment.url + "getUnnasignedResistances", {observe: 'response'})
   }
   obtainResistances() {
     return this.http.get(this.environment.url + "getResistances", {observe: 'response'})
   }
-  assignResistance(stationId, bikeId) {
-    return this.http.get(this.environment.url + "assignResistance/"+stationId+"/"+bikeId, {observe: 'response'})
+  assignResistance(measurementId, resistanceId) {
+    return this.http.get(this.environment.url + "assignResistance/"+measurementId+"/"+resistanceId, {observe: 'response'})
   }
-  desAssignBike(stationId, bikeId) {
-    return this.http.get(this.environment.url + "unassignResistance/"+stationId+"/"+bikeId, {observe: 'response'})
+  desAssignResistance(measurementId, resistanceId) {
+    return this.http.get(this.environment.url + "unassignResistance/"+measurementId+"/"+resistanceId, {observe: 'response'})
   }
   addResistance(params) {
     return this.http.post(this.environment.url + "addResistance/",params, {observe: 'response'})

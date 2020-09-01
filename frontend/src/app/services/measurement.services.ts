@@ -17,7 +17,7 @@ export class MeasurementServices {
     return this.http.get(this.environment.url + "getMeasurement", {observe: 'response'})
   }
 
-  obtainRestsnacesMeasurement(measurementId) {
+  obtainResistancesMeasurement(measurementId) {
     return this.http.get(this.environment.url + "getResistancesMeasurement/"+measurementId, {observe: 'response'})
   }
   addMeasurement(params) {

@@ -25,7 +25,7 @@ export class MeasurementDetailComponent implements OnInit {
   measurementName:string;
 
   //Com a constructor, pasem els Services (on estaran implementades les funcions), el servei de Dades (per passar dades entre components) i el Router
-  constructor(private bikeService: ResistanceServices, private stationService: MeasurementServices, private dataService:DataService, private router: Router) { }
+  constructor(private resistanceServices: ResistanceServices, private measurementService: MeasurementServices, private dataService:DataService, private router: Router) { }
 
   ngOnInit() {
     //Si obtenim el id del element de DataService:
@@ -43,9 +43,9 @@ export class MeasurementDetailComponent implements OnInit {
   }
 
   obtainMeasurementResistances() {
-    console.log("Operació de demanar bicis de l'estacio");
+    console.log("Operació de demanar resistencies de les mesures");
     if(this.measurementId!="0") {
-      this.stationService.obtainRestsnacesMeasurement(this.measurementId)
+      this.measurementService.obtainResistancesMeasurement(this.measurementId)
           .subscribe(response => {
                 console.log("Resposta del BackEnd" + response.body);
                 //Podem filtrar per tots els codis 2XX
@@ -54,7 +54,7 @@ export class MeasurementDetailComponent implements OnInit {
                   console.log("Proba ***" + this.resistancesMeasurement.toString());
                 }
                 else if (response.status == 204) {
-                  //M.toast({html: "La estacion "+this.measurementName+" no tiene bicis"});
+                  //M.toast({html: "La medida "+this.measurementName+" no tiene resistencias"});
                   this.resistancesMeasurement = 0;
                 }
                 else {
@@ -65,14 +65,14 @@ export class MeasurementDetailComponent implements OnInit {
               err => {
                 console.log("Error del BackEnd" + err);
                 //Podem filtrar per tots els altres codis
-                //M.toast({html: 'Error al solicitar las bicis'});
+                //M.toast({html: 'Error al solicitar las resistencias'});
               });
     }
   }
   obtainUnnasignedResistances() {
-    console.log("Operació de demanar bicis sense assignar");
+    console.log("Operació de demanar resistencies sense assignar");
     if(this.measurementId!="0") {
-      this.bikeService.obtainUnnasignedBikes()
+      this.resistanceServices.obtainUnnasignedResistances()
           .subscribe(response => {
                 console.log("Resposta del BackEnd" + response.body);
                 //Podem filtrar per tots els codis 2XX
@@ -80,7 +80,7 @@ export class MeasurementDetailComponent implements OnInit {
                   this.unnasignedResistances = response.body;
                 }
                 else if (response.status == 204) {
-                  //M.toast({html: 'No hay bicis sin asignar'});
+                  //M.toast({html: 'No hay resistencias sin asignar'});
                   this.unnasignedResistances = 0;
                 }
                 else {
@@ -91,7 +91,7 @@ export class MeasurementDetailComponent implements OnInit {
               err => {
                 console.log("Error del BackEnd" + err);
                 //Podem filtrar per tots els altres codis
-                //M.toast({html: 'Error al solicitar las bicis'});
+                //M.toast({html: 'Error al solicitar las resistencias'});
               });
     }
 
@@ -99,7 +99,7 @@ export class MeasurementDetailComponent implements OnInit {
 
   botoAsignar(resistance_id){
     console.log("Operació de assignar la resistencia amb id "+resistance_id);
-    this.bikeService.assignResistance(this.measurementId,resistance_id)
+    this.resistanceServices.assignResistance(this.measurementId,resistance_id)
         .subscribe(response => {
               console.log("Resposta del BackEnd" + response.body);
               //Podem filtrar per tots els codis 2XX
@@ -126,14 +126,14 @@ export class MeasurementDetailComponent implements OnInit {
             });
   }
 
-  botoDesAsignar(bike_id) {
-    console.log("Operació de desassignar la Bici amb id "+bike_id);
-    this.bikeService.desAssignBike(this.measurementId,bike_id)
+  botoDesAsignar(resistance_id) {
+    console.log("Operació de desassignar la Bici amb id "+resistance_id);
+    this.resistanceServices.desAssignResistance(this.measurementId,resistance_id)
         .subscribe(response => {
               console.log("Resposta del BackEnd" + response.body);
               //Podem filtrar per tots els codis 2XX
               if (response.status == 200) {
-                //M.toast({html: 'Bici desasignada correctamente'});
+                //M.toast({html: 'Resistencia desasignada correctamente'});
                 this.obtainMeasurementResistances();
                 this.obtainUnnasignedResistances()
               }

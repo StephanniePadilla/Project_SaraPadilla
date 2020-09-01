@@ -77,7 +77,7 @@ export class MeasurementListPage implements OnInit {
   botoLlista(id,name) {
     this.dataService.changeMeasurementId(id);
     this.dataService.changeMeasurementName(name);
-    this.router.navigateByUrl("/station-detail");
+    this.router.navigateByUrl("/measurement-detail");
   }
   async order() {
     this.llista.sort(function (a, b) {

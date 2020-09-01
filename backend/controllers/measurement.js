@@ -29,15 +29,15 @@ function getResistancesFromMeasurement(req, res){
 
     Measurement.findById(measurementId,(err, measurement) => {
         if(err)
-            return res.status(500).send({message: `Error al obtener la estacion: ${err}`})
+            return res.status(500).send({message: `Error al obtener la medida: ${err}`})
 
         if(!measurement)
-            return res.status(400).send({message: `La estacion no existe`})
+            return res.status(400).send({message: `La medida no existe`})
 
         Resistance.find({'_id': { $in: measurement.resistances}}, function(err, resistancesList){
             if(resistancesList.length==0)
             {
-                return res.status(204).send({message: `La estacion no tiene bicis`})
+                return res.status(204).send({message: `La medida no tiene resistencias`})
             }
             else
             return res.status(200).send({resistances: resistancesList})

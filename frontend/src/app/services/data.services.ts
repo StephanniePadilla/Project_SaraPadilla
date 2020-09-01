@@ -6,20 +6,20 @@ export class DataService {
 
   //Clase per intercambiar parametres entre els components
 
-  private originalStationId = new BehaviorSubject("0");
-  clickedMeasurementId = this.originalStationId.asObservable()
+  private originalMeasurementId = new BehaviorSubject("0");
+  clickedMeasurementId = this.originalMeasurementId.asObservable()
 
-  private originalStationName = new BehaviorSubject("0");
-  clickedMeasurementName = this.originalStationName.asObservable()
+  private originalMasurementName = new BehaviorSubject("0");
+  clickedMeasurementName = this.originalMasurementName.asObservable()
 
   constructor() { }
 
   changeMeasurementId(id: string) {
-    this.originalStationId.next(id)
+    this.originalMeasurementId.next(id)
   }
 
   changeMeasurementName(name: string) {
-    this.originalStationName.next(name)
+    this.originalMasurementName.next(name)
   }
 
 
