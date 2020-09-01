@@ -1,26 +1,26 @@
 import {Component, OnInit} from '@angular/core';
-import { StationServices } from "../../services/station.services";
+import { MeasurementServices } from "../../services/measurement.services";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataService} from "../../services/data.services";
 import {MenuController, ToastController} from "@ionic/angular";
-import {Station} from "../../models/station";
+import {Measurement} from "../../models/measurement";
 
 @Component({
   selector: 'app-station-list',
-  templateUrl: './station-list.page.html',
-  styleUrls: ['./station-list.page.scss','../../res/fonts/util.css','../../res/vendor/bootstrap/css/bootstrap.min.css','../../res/fonts/font-awesome-4.7.0/css/font-awesome.min.css',
+  templateUrl: './measurement-list.page.html',
+  styleUrls: ['./measurement-list.page.scss','../../res/fonts/util.css','../../res/vendor/bootstrap/css/bootstrap.min.css','../../res/fonts/font-awesome-4.7.0/css/font-awesome.min.css',
     '../../res/fonts/iconic/css/material-design-iconic-font.min.css','../../res/vendor/animate/animate.css','../../res/vendor/css-hamburgers/hamburgers.min.css', '../../res/vendor/animsition/css/animsition.min.css',
     '../../res/vendor/select2/select2.min.css','../../res/vendor/daterangepicker/daterangepicker.css']
 })
-export class StationListPage implements OnInit {
+export class MeasurementListPage implements OnInit {
 //Com a variables globals, posem simplement la llista
-  llista: Station[];
-  llistaOriginal: Station[];
+  llista: Measurement[];
+  llistaOriginal: Measurement[];
   searchTerm: string = "";
 
   //Com a constructor, pasem els Services (on estaran implementades les funcions), el servei de Dades (per passar dades entre components) i el Router
-  constructor(private stationService: StationServices,private dataService:DataService,
-              private router: Router,private activatedRoute:ActivatedRoute,
+  constructor(private stationService: MeasurementServices, private dataService:DataService,
+              private router: Router, private activatedRoute:ActivatedRoute,
               /*private menu: MenuController,*/
               public toastController: ToastController) {
     activatedRoute.params.subscribe(val => {
@@ -29,21 +29,21 @@ export class StationListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.llistaStations();
+    this.llistaMeasurements();
   }
 
   refresh(){
-    this.llistaStations();
+    this.llistaMeasurements();
   }
 
-  llistaStations() {
+  llistaMeasurements() {
     console.log("Operació de demanar estacions realitzada al BackEnd:");
-    this.stationService.obtainStations()
+    this.stationService.obtainMeasurement()
         .subscribe(async response => {
               console.log("Resposta del BackEnd" + response.body);
               //Podem filtrar per tots els codis 2XX
               if (response.status == 200) {
-                this.llista = response.body as Station[];
+                this.llista = response.body as Measurement[];
                 this.llistaOriginal=this.llista;
                 const toast = await this.toastController.create({
                   message: "Estaciones Actualizadas",
@@ -75,8 +75,8 @@ export class StationListPage implements OnInit {
             });
   }
   botoLlista(id,name) {
-    this.dataService.changeStationId(id);
-    this.dataService.changeStationName(name);
+    this.dataService.changeMeasurementId(id);
+    this.dataService.changeMeasurementName(name);
     this.router.navigateByUrl("/station-detail");
   }
   async order() {

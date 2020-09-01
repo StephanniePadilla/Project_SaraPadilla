@@ -8,9 +8,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {AddStationComponent} from "./components/add-station/add-station.component";
-import {AddBikeComponent} from "./components/add-bike/add-bike.component";
-import {StationDetailComponent} from "./components/station-detail/station-detail.component";
+import {AddMeasurementComponent} from "./components/add-measurement/add-measurement.component";
+import {AddResistanceComponent} from "./components/add-resistance/add-resistance.component";
+import {MeasurementDetailComponent} from "./components/measurement-detail/measurement-detail.component";
 import {HttpClientModule} from "@angular/common/http";
 import {DataService} from "./services/data.services";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -18,9 +18,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
       AppComponent,
-      AddStationComponent,
-      AddBikeComponent,
-      StationDetailComponent,
+      AddMeasurementComponent,
+      AddResistanceComponent,
+      MeasurementDetailComponent,
   ],
   entryComponents: [],
   imports: [

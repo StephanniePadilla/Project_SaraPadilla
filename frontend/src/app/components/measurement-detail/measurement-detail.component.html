@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title style="padding-left:20px">Station Detail</ion-title>
+    <ion-title style="padding-left:20px">Measurement Detail</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="station-list"></ion-back-button>
     </ion-buttons>
@@ -14,60 +14,60 @@
         <br>
         <!--Titol principal-->
         <span class="login100-form-title">
-          "{{stationName}}" Current Bikes:
+          "{{measurementName}}" Current Bikes:
         </span>
         <br>
-        <ion-list-header *ngIf="bikesStation" >
-          <ion-label>Bike</ion-label>
-          <ion-label>Kms</ion-label>
+        <ion-list-header *ngIf="resistancesMeasurement" >
+          <ion-label>Resistance</ion-label>
+          <ion-label>Value</ion-label>
           <ion-label>Description</ion-label>
           <ion-label></ion-label>
           <ion-label></ion-label>
           <ion-label></ion-label>
         </ion-list-header>
-        <div *ngIf="bikesStation">
-          <ion-list *ngFor="let bike of bikesStation.bikes"  style="background: url('/assets/img/background2.png')">
+        <div *ngIf="resistancesMeasurement">
+          <ion-list *ngFor="let resistance of resistancesMeasurement.resistances" style="background: url('/assets/img/background2.png')">
             <ion-item>
-              <ion-label>{{bike.name}}</ion-label>
-              <ion-label>{{bike.kms}}</ion-label>
-              <ion-label>{{bike.description}}</ion-label>
+              <ion-label>{{resistance.name}}</ion-label>
+              <ion-label>{{resistance.value}}</ion-label>
+              <ion-label>{{resistance.description}}</ion-label>
               <ion-label></ion-label>
-              <ion-button class="list-buttons1" color="danger" (click)="botoDesAsignar(bike._id)" >
-                <ion-label style="padding-left:7px">Desassign from Station</ion-label>
+              <ion-button class="list-buttons1" color="danger" (click)="botoDesAsignar(resistance._id)" >
+                <ion-label style="padding-left:7px">Desassign from Measurement</ion-label>
                 <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
               </ion-button>
             </ion-item>
           </ion-list>
         </div>
-        <ion-label *ngIf="bikesStation==false">There is not any bike assigned to the station: {{stationName}}</ion-label>
+        <ion-label *ngIf="resistancesMeasurement==false">There is not any resistance assigned to the measurement: {{measurementName}}</ion-label>
         <br>
         <br>
         <span class="login100-form-title">
           Bikes ready to assign:
         </span>
         <br>
-        <ion-list-header *ngIf="unnasignedBikes" >
-          <ion-label>Bike</ion-label>
-          <ion-label>Kms</ion-label>
+        <ion-list-header *ngIf="unnasignedResistances" >
+          <ion-label>Resistance</ion-label>
+          <ion-label>Value</ion-label>
           <ion-label>Description</ion-label>
           <ion-label></ion-label>
           <ion-label></ion-label>
           <ion-label></ion-label>
         </ion-list-header>
-        <div *ngIf="unnasignedBikes">
-          <ion-list *ngFor="let bike of unnasignedBikes"  style="background: url('/assets/img/background2.png')">
+        <div *ngIf="unnasignedResistances">
+          <ion-list *ngFor="let resistance of unnasignedResistances" style="background: url('/assets/img/background2.png')">
             <ion-item>
-              <ion-label>{{bike.name}}</ion-label>
-              <ion-label>{{bike.kms}}</ion-label>
-              <ion-label>{{bike.description}}</ion-label>
-              <ion-button class="list-buttons2"  color="success"(click)="botoAsignar(bike._id)" >
-                <ion-label style="padding-left:7px" >Assign to the Station</ion-label>
+              <ion-label>{{resistance.name}}</ion-label>
+              <ion-label>{{resistance.value}}</ion-label>
+              <ion-label>{{resistance.description}}</ion-label>
+              <ion-button class="list-buttons2"  color="success"(click)="botoAsignar(resistance._id)" >
+                <ion-label style="padding-left:7px" >Assign to the Measurement</ion-label>
                 <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
               </ion-button>
             </ion-item>
           </ion-list>
         </div>
-        <ion-label *ngIf="unnasignedBikes==false">There is not any bike ready to assign</ion-label>
+        <ion-label *ngIf="unnasignedResistances==false">There is not any resistance ready to assign</ion-label>
         <br>
       </div>
     </div>

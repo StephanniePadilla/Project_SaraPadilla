@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StationDetailComponent } from './station-detail.component';
+import { MeasurementDetailComponent } from './measurement-detail.component';
 
-describe('StationDetailComponent', () => {
-  let component: StationDetailComponent;
-  let fixture: ComponentFixture<StationDetailComponent>;
+describe('MeasurementDetailComponent', () => {
+  let component: MeasurementDetailComponent;
+  let fixture: ComponentFixture<MeasurementDetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StationDetailComponent ],
+      declarations: [ MeasurementDetailComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StationDetailComponent);
+    fixture = TestBed.createComponent(MeasurementDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

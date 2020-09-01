@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddStationComponent } from './add-station.component';
+import { AddResistanceComponent } from './add-resistance.component';
 
-describe('AddStationComponent', () => {
-  let component: AddStationComponent;
-  let fixture: ComponentFixture<AddStationComponent>;
+describe('AddResistanceComponent', () => {
+  let component: AddResistanceComponent;
+  let fixture: ComponentFixture<AddResistanceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddStationComponent ],
+      declarations: [ AddResistanceComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddStationComponent);
+    fixture = TestBed.createComponent(AddResistanceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -6,19 +6,19 @@ que es on estan implementades
  */
 const express = require('express')
 const api = express.Router()
-const bikeCtrl = require('../controllers/bike')
-const stationCtrl = require('../controllers/station')
+const resistanceCtrl = require('../controllers/resistance')
+const stationCtrl = require('../controllers/measurement')
 
-api.get('/getStations',stationCtrl.getStations),
-api.get('/getBikesStation/:stationId',stationCtrl.getBikesFromStation),
-api.get('/afagirMostra',stationCtrl.addSampleStation),
-api.get('/afagirMostra2',stationCtrl.addSampleStation2),
-api.post('/addStation',stationCtrl.addStation),
-api.get('/getUnnasignBikes',bikeCtrl.getUnnasignedBikes),
-api.get('/getBikes',bikeCtrl.getBikes),
-api.get('/assignBike/:stationId/:bikeId',bikeCtrl.assignBikeToStation),
-api.get('/unassignBike/:stationId/:bikeId',bikeCtrl.unassignBikeToStation),
-api.post('/addBike',bikeCtrl.addBike),
+api.get('/getMeasurement',stationCtrl.getMeasurement),
+api.get('/getResistancesMEasurement/:measurementId',stationCtrl.getResistancesFromMeasurement),
+api.get('/afagirMostra',stationCtrl.addSampleMeasurement),
+api.get('/afagirMostra2',stationCtrl.addSampleMeasurement2),
+api.post('/addMeasurement',stationCtrl.addMeasurement),
+api.get('/getUnnasigedResistances',resistanceCtrl.getUnnasignedResistances),
+api.get('/getResistances',resistanceCtrl.getResistances),
+api.get('/assignResistance/:measurementId/:resistanceId',resistanceCtrl.assignResistanceToMeasurement),
+api.get('/unassignResistance/:measurementId/:resistanceId',resistanceCtrl.unassignResistanceToMeasurement),
+api.post('/addResistance',resistanceCtrl.addResistance),
 
 
 

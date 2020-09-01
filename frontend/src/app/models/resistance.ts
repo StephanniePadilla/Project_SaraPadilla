@@ -1,14 +1,14 @@
-export class Bike {
+export class Resistance {
   _id: string;
   name: string;
-  kms: number;
+  value: number;
   description: String;
   assigned: boolean;
 
 
-  constructor(name: string, kms: number, description: String, assigned: boolean) {
+  constructor(name: string, value: number, description: String, assigned: boolean) {
     this.name = name;
-    this.kms = kms;
+    this.value = value;
     this.description = description;
     this.assigned = assigned;
   }

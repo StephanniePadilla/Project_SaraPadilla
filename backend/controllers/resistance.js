@@ -1,19 +1,19 @@
 'use strict'
 
-const Station = require('../models/station')
-const Bike = require('../models/bike')
+const Station = require('../models/measurement')
+const Resistance = require('../models/resistance')
 
 
-function getUnnasignedBikes(req,res) {
+function getUnnasignedResistances(req, res) {
     //Funcio per obtindre totes les bicis sense asignar
 
     console.log("Peticio de obtindre totes les bicis sense asignar")
-    Bike.find({assigned: false}).exec(function(err, bikes) {
+    Resistance.find({assigned: false}).exec(function(err, bikes) {
         if(err) {
-            return res.status(500).send({message: `Error al obtindre les bicis: ${err}`})
+            return res.status(500).send({message: `Error to obtain the resistances: ${err}`})
         }
         if (bikes.length==0){
-            return res.status(204).send({message: `No hay ninguna bici sin asignar`})
+            return res.status(204).send({message: `There are no resistances unasigned`})
             }
         else {
             return res.status(200).send(bikes)
@@ -21,35 +21,35 @@ function getUnnasignedBikes(req,res) {
     });
 }
 
-function getBikes(req,res) {
+function getResistances(req, res) {
     //Funcio per obtindre totes les bicis estiguin asignades com no
 
     console.log("Peticio de obtindre totes les bicis");
-    Bike.find().exec(function(err, bikes) {
+    Resistance.find().exec(function(err, resistances) {
         if(err) {
             return res.status(500).send({message: `Error al obtindre les bicis: ${err}`})
         }
-        if (bikes.length==0){
+        if (resistances.length==0){
             return res.status(204).send({message: `No hay ninguna bici`})
         }
         else {
-            return res.status(200).send(bikes)
+            return res.status(200).send(resistances)
         }
     });
 }
 
 
 
-function assignBikeToStation(req,res){
+function assignResistanceToMeasurement(req, res){
     //Funció per assignar una bici a una estacio
-    let stationId= req.params.stationId
-    let bikeId= req.params.bikeId
+    let stationId= req.params.measurementId
+    let resistanceId= req.params.resistanceId
 
     //Fem $push per afagir sempre, i $addToSet per afagir només si no hi es
-    console.log("Petició d'afagir l'a bici "+bikeId+" a la seguent estacio: "+stationId)
+    console.log("Petició d'afagir l'a bici "+resistanceId+" a la seguent estacio: "+stationId)
 
     //Mirem que la bici existeixi
-    Bike.findById(bikeId).lean().exec(function(err, bike) {
+    Resistance.findById(resistanceId).lean().exec(function(err, bike) {
         if(err){
             return res.status(500).send({message: `Error al obtener la bixi: ${err}`})}
         if (bike.length==0){
@@ -59,16 +59,16 @@ function assignBikeToStation(req,res){
             return res.status(400).send({message: `Esta bici ya se encuentra asignada a una estacion`})
         }
         else {
-            //bike.assigned==true;
-            Bike.update({_id: bikeId},{ assigned: true},(err, bike)=>{
+            //resistance.assigned==true;
+            Resistance.update({_id: resistanceId},{ assigned: true},(err, resistance)=>{
                 if(err)
                     return res.status(500).send({message: `Error al asignar la bici: ${err}`})
-                else if(!bike)
+                else if(!resistance)
                     return res.status(400).send({message: `Error al asignar la bici: ${err}`})
                 else {
-                    if (bike.nModified == 1) {
+                    if (resistance.nModified == 1) {
                         //La añadimos a la estacion
-                        Station.update({_id: stationId},{$addToSet: { bikes: bikeId}},(err, sta)=>{
+                        Station.update({_id: stationId},{$addToSet: { resistances: resistanceId}},(err, sta)=>{
                             if(err)
                                 return res.status(500).send({message: `Error al asignar la bici: ${err}`})
                             else if(!sta)
@@ -93,7 +93,7 @@ function assignBikeToStation(req,res){
                         })
                     }
                     else{
-                        res.status(400).send(bike);
+                        res.status(400).send(resistance);
                     }
                 }
             })
@@ -101,35 +101,35 @@ function assignBikeToStation(req,res){
     });
 
 }
-function unassignBikeToStation(req,res){
+function unassignResistanceToMeasurement(req, res){
     //Funció per assignar una bici a una estacio
-    let stationId= req.params.stationId
-    let bikeId= req.params.bikeId
+    let stationId= req.params.measurementId
+    let resistanceId= req.params.resistanceId
 
     //Fem $push per afagir sempre, i $addToSet per afagir només si no hi es
-    console.log("Petició de treure la bici "+bikeId+" a la seguent estacio: "+stationId)
+    console.log("Petició de treure la bici "+resistanceId+" a la seguent estacio: "+stationId)
 
     //Mirem que la bici existeixi
-    Bike.findById(bikeId).lean().exec(function(err, bike) {
+    Resistance.findById(resistanceId).lean().exec(function(err, resistance) {
         if(err){
             return res.status(500).send({message: `Error al obtener la bixi: ${err}`})}
-        if (bike.length==0){
+        if (resistance.length==0){
             return res.status(400).send({message: `Error al obtener la bici: ${err}. No existe ninguna bici con ese ID`})
         }
-        else if (bike.assigned==false){
+        else if (resistance.assigned==false){
             return res.status(400).send({message: `Esta bici ya no se encuentra asignada`})
         }
         else {
-            //bike.assigned==true;
-            Bike.update({_id: bikeId},{ assigned: false},(err, bike)=>{
+            //resistance.assigned==true;
+            Resistance.update({_id: resistanceId},{ assigned: false},(err, resistance)=>{
                 if(err)
                     return res.status(500).send({message: `Error al desasignar la bici: ${err}`})
-                else if(!bike)
+                else if(!resistance)
                     return res.status(400).send({message: `Error al desasignar la bici: ${err}`})
                 else {
-                    if (bike.nModified == 1) {
+                    if (resistance.nModified == 1) {
                         //La eliminamos a la estacion
-                        Station.update({_id: stationId},{$pull: { bikes: bikeId}},(err, sta)=>{
+                        Station.update({_id: stationId},{$pull: { resistances: resistanceId}},(err, sta)=>{
                             if(err)
                                 return res.status(500).send({message: `Error al desasignar la bici: ${err}`})
                             else if(!sta)
@@ -139,7 +139,7 @@ function unassignBikeToStation(req,res){
                             //}
                             //Ara hauriem de cambiar el camp a NA de l'estacio
                                 if (sta.nModified == 1) {
-                                    Station.find({_id: stationId,bikes: {$size: 0}}, (err, estacions) => {
+                                    Station.find({_id: stationId,resistances: {$size: 0}}, (err, estacions) => {
                                         if (err) {
                                             return res.status(500).send({message: `Error al obtener las estaciones: ${err}`})
                                         } else if (estacions.length == 0) {
@@ -165,7 +165,7 @@ function unassignBikeToStation(req,res){
                         })
                     }
                     else{
-                        res.status(400).send(bike);
+                        res.status(400).send(resistance);
                     }
                 }
             })
@@ -174,33 +174,33 @@ function unassignBikeToStation(req,res){
 
 }
 
-function addBike(req,res){
+function addResistance(req, res){
     console.log("Petició d'afagir bici")
-    let bikeNew= new Bike ({name: req.body.name,kms:req.body.kms,description:req.body.description,assigned:false})
+    let resistanceNew= new Resistance ({name: req.body.name,value:req.body.value,description:req.body.description,assigned:false})
 
-    Bike.find({name: bikeNew.name}).exec(function(err, bike) {
+    Resistance.find({name: resistanceNew.name}).exec(function(err, resistance) {
         if(err) {
             return res.status(500).send({message: `Error al añadir bici: ${err}`})
         }
-        if (bike.length==0){
-            bikeNew.save((err,bikeSaved) => {
+        if (resistance.length==0){
+            resistanceNew.save((err,resistanceSaved) => {
                 if(err) {
                     return res.status(400).send({message: `Error al añadir la bici: ${err}. Ya existe una bici con ese nombre`})
                 }
-                return res.status(200).send(bikeSaved)
+                return res.status(200).send(resistanceSaved)
             } ) }
         else {
-            return res.status(400).send({message: `Error al añadir la bici: ${bikeNew.name}. Ya existe una bici con ese nombre`})
+            return res.status(400).send({message: `Error al añadir la bici: ${resistanceNew.name}. Ya existe una bici con ese nombre`})
         }
     });
 
 }
 
 module.exports={
-    getUnnasignedBikes,
-    getBikes,
-    assignBikeToStation,
-    unassignBikeToStation,
-    addBike,
+    getUnnasignedResistances: getUnnasignedResistances,
+    getResistances: getResistances,
+    assignResistanceToMeasurement: assignResistanceToMeasurement,
+    unassignResistanceToMeasurement: unassignResistanceToMeasurement,
+    addResistance: addResistance,
 
 }

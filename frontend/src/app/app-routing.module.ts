@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {AddStationComponent} from "./components/add-station/add-station.component";
-import {AddBikeComponent} from "./components/add-bike/add-bike.component";
-import {StationDetailComponent} from "./components/station-detail/station-detail.component";
+import {AddMeasurementComponent} from "./components/add-measurement/add-measurement.component";
+import {AddResistanceComponent} from "./components/add-resistance/add-resistance.component";
+import {MeasurementDetailComponent} from "./components/measurement-detail/measurement-detail.component";
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'station-list',
+    redirectTo: 'measurement-list',
     pathMatch: 'full'
   },
-  { path: 'station-list', loadChildren: './components/station-list/station-list.module#StationListPageModule' },
-  { path: 'bike-list', loadChildren: './components/bike-list/bike-list.module#BikeListPageModule' },
-  { path: 'add-station', component: AddStationComponent},
-  { path: 'add-bike', component: AddBikeComponent},
-  { path: 'station-detail', component: StationDetailComponent},
+  { path: 'measurement-list', loadChildren: './components/measurement-list/measurement-list.module#MeasurementListPageModule' },
+  { path: 'resistance-list', loadChildren: './components/resistance-list/resistance-list.module#ResistanceListPageModule' },
+  { path: 'add-measurement', component: AddMeasurementComponent},
+  { path: 'add-resistance', component: AddResistanceComponent},
+  { path: 'measurement-detail', component: MeasurementDetailComponent},
 ];
 
 @NgModule({
