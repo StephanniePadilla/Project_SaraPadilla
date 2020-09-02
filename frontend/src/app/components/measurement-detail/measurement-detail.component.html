@@ -29,7 +29,7 @@
           <ion-list *ngFor="let resistance of resistancesMeasurement.resistances" style="background: url('/assets/img/background2.png')">
             <ion-item>
               <ion-label>{{resistance.name}}</ion-label>
-              <ion-label>{{resistance.value}}</ion-label>
+              <ion-label style="padding-left:70px">{{resistance.value}}</ion-label>
               <ion-label class="ion-text-wrap">{{resistance.description}}</ion-label>
               <ion-label></ion-label>
               <ion-button class="list-buttons1" color="danger" (click)="botoDesAsignar(resistance._id)" >

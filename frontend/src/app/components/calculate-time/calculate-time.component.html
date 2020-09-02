@@ -10,7 +10,7 @@
 <ion-content>
   <div class="limiter">
     <div style="background: url('/assets/img/background4.png')" class="container-login100">
-      <div style="background: url('/assets/img/background2.png')" class="wrap-login100 p-l-15 p-r-15 p-t-15 p-b-15">
+      <div style="background: url('/assets/img/background2.png')" class="wrap-login100 p-l-50 p-r-50 p-t-40 p-b-15">
         <form class="login100-form validate-form">
           <span class="login100-form-title p-b-49">
             Calculate time of the measurements
@@ -18,17 +18,17 @@
           <form [formGroup]="Form">
             <ion-list>
               <ion-item>
-                <ion-icon name="add" item-start></ion-icon>
+                <ion-icon name="logo-buffer" item-start></ion-icon>
                 <ion-label stacked>Number of rows:</ion-label>
                 <ion-input formControlName="measRow" type="number" min="0" max="200" placeholder="# Rows"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-icon name="add" item-start></ion-icon>
+                <ion-icon name="copy" item-start></ion-icon>
                 <ion-label stacked>Number of columns:</ion-label>
                 <ion-input formControlName="measCol" type="number" min="0" max="1000" placeholder="# Columns"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-icon name="add" item-start></ion-icon>
+                <ion-icon name="timer" item-start></ion-icon>
                 <ion-label stacked>Measurements per second:</ion-label>
                 <ion-input formControlName="measSec" type="number" min="0" placeholder="Meas/sec"></ion-input>
               </ion-item>
@@ -38,15 +38,45 @@
           <div class="container-login100-form-btn">
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
-              <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="calculateTime()"
+              <ion-button icon-left size="medium" expand="full" shape="round" color="dark"	(click)="calculateTime()"
                           [disabled]="Form.invalid"  [style.backgroundColor]="enable ? '#00CC00' : '#FF0000'">
-                <ion-icon  style="padding-right:15px" size="large" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+                <ion-icon  style="padding-right:15px" size="large" ios="ios-calculator-outline" md="md-calculator"></ion-icon>
                 Calculate the time for the measurement
               </ion-button>
             </div>
           </div>
 
+          <br>
+          <!--Si la variable llista es diferent a Null, mostrem els titols de les columnes-->
+          <ion-list-header>
+            <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" text-center>Number of Rows</ion-label>
+            <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" text-center>Number of Colums </ion-label>
+            <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" text-center>Measurements per second</ion-label>
+            <ion-label></ion-label>
+          </ion-list-header>
+          <ion-list style="background: url('/assets/img/background2.png') ">
+            <ion-item>
+              <ion-label> {{measRow}} </ion-label>
+              <ion-label>{{measCol}}</ion-label>
+              <ion-label>{{measSec}}</ion-label>
+              </ion-item>
+          </ion-list>
 
+          <br>
+          <!--Si la variable llista es diferent a Null, mostrem els titols de les columnes-->
+          <ion-list-header>
+            <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" text-center>Total measurements</ion-label>
+            <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" text-center>Total time for the measurements [sec]</ion-label>
+            <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" text-center>Total time for the measurements [min]</ion-label>
+            <ion-label></ion-label>
+          </ion-list-header>
+          <ion-list style="background: url('/assets/img/background2.png') ">
+            <ion-item>
+              <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" > {{measTotal}}</ion-label>
+              <ion-label class="ion-text-wrap p-l-5 p-r-5 p-t-5 p-b-0" >{{measTimeSec}}</ion-label>
+              <ion-label class="ion-text-wrap p-l-5 p-r-5 p-t-5 p-b-0" text-center>{{measTimeMin}}</ion-label>
+            </ion-item>
+          </ion-list>
 
         </form>
 

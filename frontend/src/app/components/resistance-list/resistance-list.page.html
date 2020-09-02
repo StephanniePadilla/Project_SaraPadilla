@@ -23,18 +23,18 @@
         <br>
         <!--Si la variable llista es diferent a Null, mostrem els titols de les columnes-->
         <ion-list-header *ngIf="llista" >
-          <ion-label>.     Resistance</ion-label>
-          <ion-label>   Value [kΩ] </ion-label>
-          <ion-label>   Description</ion-label>
-          <ion-label>   Assigned</ion-label>
+          <ion-label style="padding-left:20px">Resistance</ion-label>
+          <ion-label style="padding-right:70px">Value [kΩ] </ion-label>
+          <ion-label>Description</ion-label>
+          <ion-label>Assigned</ion-label>
           <ion-label></ion-label>
         </ion-list-header>
           <ion-list *ngFor="let resistance of llista" style="background: url('/assets/img/background2.png')">
             <ion-item>
               <ion-label>{{resistance.name}}</ion-label>
-              <ion-label>{{resistance.value}}</ion-label>
+              <ion-label style="padding-left:40px">{{resistance.value}}</ion-label>
               <ion-label class="ion-text-wrap">{{resistance.description}}</ion-label>
-              <ion-label>{{resistance.assigned}}</ion-label>
+              <ion-label style="padding-left:90px">{{resistance.assigned}}</ion-label>
             </ion-item>
           </ion-list>
         <br>

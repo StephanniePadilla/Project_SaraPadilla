@@ -15,6 +15,13 @@ export class CalculateTimeComponent implements OnInit {
 
   Form: FormGroup;
   validation_messages: any;
+  measTimeSec: number;
+  measTimeMin: number;
+  measTotal: number;
+  measRow: number;
+  measCol: number;
+  measSec: number;
+
 
   constructor(public toastController: ToastController,private formBuilder: FormBuilder,
               private router: Router, private resistanceServices: ResistanceServices) {
@@ -47,16 +54,26 @@ export class CalculateTimeComponent implements OnInit {
         { type: 'pattern', message: 'Description: Must contain less than 50 characters' }
       ]}
   }
+
+
+
   calculateTime() {
-    var params = {
-      measRow: this.Form.value.measRow,
-      measCol:this.Form.value.measCol,
-      measSec: this.Form.value.measSec,
-    };
-    console.log("Operació de demanar estacions realitzada al BackEnd:");
+    //I save my variables
+      const measRow: number = this.Form.value.measRow;
+      const measCol: number = this.Form.value.measCol;
+      const measSec: number = this.Form.value.measSec;
+      console.log("MeasRow: " +  measRow + " MeasCol: " + measCol + " MeasSec: " + measSec);
 
+      this.measRow = measRow;
+      this.measCol = measCol;
+      this.measSec = measSec;
+
+    //I perform the operations
+      this.measTimeSec = measRow * measCol / measSec;
+      this.measTimeMin = this.measTimeSec / 60;
+      this.measTotal = this.measTimeSec * measSec;
+      console.log("measTimeSec: " + this.measTimeSec + "measTotal" + this.measTotal);
   }
-
 
 
 }
