@@ -15,6 +15,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {DataService} from "./services/data.services";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CalculateTimeComponent} from "./components/calculate-time/calculate-time.component";
+import {MainMenuComponent} from "./components/main-menu/main-menu.component";
 
 //import { MenuController } from '@ionic/angular';
 
@@ -25,6 +26,7 @@ import {CalculateTimeComponent} from "./components/calculate-time/calculate-time
       AddResistanceComponent,
       MeasurementDetailComponent,
       CalculateTimeComponent,
+      MainMenuComponent,
   ],
   entryComponents: [],
   imports: [

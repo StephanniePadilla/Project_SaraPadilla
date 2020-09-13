@@ -1,0 +1,64 @@
+
+<ion-content>
+  <div class="limiter">
+    <div style="background: url('/assets/img/background.png')" class="container-login100">
+
+        <br>
+
+        <!--Titol principal-->
+        <span class="login100-form-title">
+          <ion-row class="login100-form-title">Experiment Status Monitoring </ion-row>
+		  <ion-row class="login100-form-title">System</ion-row>
+          <ion-row class="q2">(Author: Sara Stephannie Padilla Romero)</ion-row>
+        </span>
+
+        <span>
+          <img class="displayed"  height="320 px" width="650 px" src="/assets/img/monitoring.png" >
+        </span>
+
+        <div style="background: url('/assets/img/background2.png')" class="wrap-login100">
+
+        <!--header-->
+        <ion-list-header>
+          <p>
+             <ion-label >Main Menu</ion-label>
+          </p>
+        </ion-list-header>
+
+        <!--list-->
+        <ion-list style="background: url('/assets/img/background2.png')">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon" style="color:#0a0f40; padding-left: 60px"></ion-icon>
+              <ion-label class="q">
+                {{p.title}}
+              </ion-label>
+              <ion-icon slot="end" [name]="p.icon" style="color:#0a0f40; padding-right: 60px"></ion-icon>
+            </ion-item>
+
+          </ion-menu-toggle>
+        </ion-list>
+        <br>
+       </div>
+
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+  </div>
+</ion-content>
+

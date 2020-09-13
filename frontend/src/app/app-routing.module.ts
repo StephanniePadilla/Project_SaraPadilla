@@ -4,12 +4,13 @@ import {AddMeasurementComponent} from "./components/add-measurement/add-measurem
 import {AddResistanceComponent} from "./components/add-resistance/add-resistance.component";
 import {MeasurementDetailComponent} from "./components/measurement-detail/measurement-detail.component";
 import {CalculateTimeComponent} from "./components/calculate-time/calculate-time.component";
+import {MainMenuComponent} from "./components/main-menu/main-menu.component";
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'measurement-list',
+    redirectTo: 'main-menu',
     pathMatch: 'full'
   },
   { path: 'measurement-list', loadChildren: './components/measurement-list/measurement-list.module#MeasurementListPageModule' },
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'add-resistance', component: AddResistanceComponent},
   { path: 'measurement-detail', component: MeasurementDetailComponent},
   { path: 'calculate-time', component: CalculateTimeComponent},
-
+  { path: 'main-menu', component: MainMenuComponent},
 ];
 
 @NgModule({

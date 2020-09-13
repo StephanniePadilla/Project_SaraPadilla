@@ -49,7 +49,7 @@
 
     <!-- Contenido del menu -->
     <ion-content>
-      <ion-list>
+      <ion-list style="background: url('/assets/img/background2.png')">
         <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
           <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
             <ion-icon slot="start" [name]="p.icon"></ion-icon>

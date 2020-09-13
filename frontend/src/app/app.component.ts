@@ -37,7 +37,18 @@ export class AppComponent {
       title: 'Calculate time',
       url: '/calculate-time',
       icon: 'stopwatch'
+    },
+    {
+      title: '',
+      url:'-',
+      icon: ''
+    },
+    {
+      title: 'Back to main menu',
+      url: '/main-menu',
+      icon: 'arrow-dropleft-circle'
     }
+
 
   ];
 

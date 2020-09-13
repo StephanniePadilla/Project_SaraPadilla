@@ -16,6 +16,7 @@
             Calculate time of the measurements
           </span>
           <form [formGroup]="Form">
+
             <ion-list>
               <ion-item>
                 <ion-icon name="logo-buffer" item-start></ion-icon>
@@ -71,14 +72,15 @@
             <ion-label></ion-label>
           </ion-list-header>
           <ion-list style="background: url('/assets/img/background2.png') ">
-            <ion-item>
-              <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" > {{measTotal}}</ion-label>
-              <ion-label class="ion-text-wrap p-l-5 p-r-5 p-t-5 p-b-0" >{{measTimeSec}}</ion-label>
-              <ion-label class="ion-text-wrap p-l-5 p-r-5 p-t-5 p-b-0" text-center>{{measTimeMin}}</ion-label>
+            <ion-item >
+              <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" style="margin: 10px"> {{measTotal}}</ion-label>
+              <ion-label class="ion-text-wrap p-l-15 p-r-0 p-t-5 p-b-0" style="margin: 10px">{{measTimeSec}}</ion-label>
+              <ion-label class="ion-text-wrap p-l-5 p-r-5 p-t-5 p-b-0" text-center style="margin: 10px">{{measTimeMin}}</ion-label>
             </ion-item>
           </ion-list>
 
         </form>
+
 
         <br>
         <div class="validation-errors">
