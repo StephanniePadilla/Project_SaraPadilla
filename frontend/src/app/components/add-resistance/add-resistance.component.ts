@@ -65,7 +65,7 @@ export class AddResistanceComponent implements OnInit {
                   position: 'bottom',
                 });
                 toast.present();
-                this.router.navigateByUrl('');
+                this.router.navigateByUrl('/resistance-list');
               } else {
                 //Error desconegut
                 console.log("Error");

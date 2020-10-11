@@ -57,7 +57,7 @@ export class AddMeasurementComponent implements OnInit {
                   position: 'bottom',
                 });
                 toast.present();
-                this.router.navigateByUrl('');
+                this.router.navigateByUrl('/measurement-list');
               } else {
                 //Error desconegut
                 console.log("Error");
