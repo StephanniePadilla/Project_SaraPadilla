@@ -62,9 +62,9 @@ function assignResistanceToMeasurement(req, res){
             //resistance.assigned==true;
             Resistance.update({_id: resistanceId},{ assigned: true},(err, resistance)=>{
                 if(err)
-                    return res.status(500).send({message: `Error al asignar la bici: ${err}`})
+                    return res.status(500).send({message: `Error al asignar la medida: ${err}`})
                 else if(!resistance)
-                    return res.status(400).send({message: `Error al asignar la bici: ${err}`})
+                    return res.status(400).send({message: `Error al asignar la medida: ${err}`})
                 else {
                     if (resistance.nModified == 1) {
                         //La añadimos a la medida
@@ -141,16 +141,16 @@ function unassignResistanceToMeasurement(req, res){
                                 if (sta.nModified == 1) {
                                     Measurement.find({_id: measurementId,resistances: {$size: 0}}, (err, estacions) => {
                                         if (err) {
-                                            return res.status(500).send({message: `Error al obtener las estaciones: ${err}`})
+                                            return res.status(500).send({message: `Error al obtener las medidas: ${err}`})
                                         } else if (estacions.length == 0) {
                                             //Aun tiene bicis
                                             res.status(200).send(sta);
                                         } else {
                                             Measurement.update({_id: measurementId}, {state: "NA"}, (err, stas) => {
                                                 if (err)
-                                                    return res.status(500).send({message: `Error al alterar la estacion: ${err}`})
+                                                    return res.status(500).send({message: `Error al alterar la medida: ${err}`})
                                                 else if (!stas)
-                                                    return res.status(400).send({message: `Error al alterar la estacion ${err}`})
+                                                    return res.status(400).send({message: `Error al alterar la medida: ${err}`})
                                                 else {
                                                     res.status(200).send(sta);
                                                 }

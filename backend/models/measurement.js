@@ -7,7 +7,7 @@ const measurementSchema = new mongoose.Schema({
     // En el nostre cas posem el nom de la mesura com a requerit i unic, i les resistencies no com a unics (Una mateixa
     // resistencia pot anar a varies mesures)
     name: {type: String,unique: true, required: true},
-    state: {type: String, enum: ['available', 'NA']},
+    state: {type: String, enum: ['available', 'Performed']},
     description: String,
     resistances: [{type: mongoose.Schema.Types.ObjectId, ref: 'Resistances',unique: false}]
 });

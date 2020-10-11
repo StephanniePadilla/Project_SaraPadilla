@@ -127,7 +127,7 @@ export class MeasurementDetailComponent implements OnInit {
   }
 
   botoDesAsignar(resistance_id) {
-    console.log("Operació de desassignar la Bici amb id "+resistance_id);
+    console.log("Operació de desassignar la resistencia amb id "+resistance_id);
     this.resistanceServices.desAssignResistance(this.measurementId,resistance_id)
         .subscribe(response => {
               console.log("Resposta del BackEnd" + response.body);

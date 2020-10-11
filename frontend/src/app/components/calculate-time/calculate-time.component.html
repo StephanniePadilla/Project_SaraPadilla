@@ -57,9 +57,9 @@
           </ion-list-header>
           <ion-list style="background: url('/assets/img/background2.png') ">
             <ion-item>
-              <ion-label> {{measRow}} </ion-label>
-              <ion-label>{{measCol}}</ion-label>
-              <ion-label>{{measSec}}</ion-label>
+              <ion-label> {{measRow | number : '1.0-2'}} </ion-label>
+              <ion-label>{{measCol | number : '1.0-2'}}</ion-label>
+              <ion-label>{{measSec | number : '1.0-2'}}</ion-label>
               </ion-item>
           </ion-list>
 
@@ -73,9 +73,9 @@
           </ion-list-header>
           <ion-list style="background: url('/assets/img/background2.png') ">
             <ion-item >
-              <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" style="margin: 10px"> {{measTotal}}</ion-label>
-              <ion-label class="ion-text-wrap p-l-15 p-r-0 p-t-5 p-b-0" style="margin: 10px">{{measTimeSec}}</ion-label>
-              <ion-label class="ion-text-wrap p-l-5 p-r-5 p-t-5 p-b-0" text-center style="margin: 10px">{{measTimeMin}}</ion-label>
+              <ion-label class="ion-text-wrap p-l-5 p-r-20 p-t-5 p-b-0" style="margin: 10px"> {{measTotal | number : '1.0-3'}}</ion-label>
+              <ion-label class="ion-text-wrap p-l-15 p-r-0 p-t-5 p-b-0" style="margin: 10px">{{measTimeSec | number : '1.0-2'}}</ion-label>
+              <ion-label class="ion-text-wrap p-l-5 p-r-5 p-t-5 p-b-0" text-center style="margin: 10px">{{measTimeMin | number : '1.0-2'}}</ion-label>
             </ion-item>
           </ion-list>
 

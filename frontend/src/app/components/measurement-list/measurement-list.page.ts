@@ -37,7 +37,7 @@ export class MeasurementListPage implements OnInit {
   }
 
   llistaMeasurements() {
-    console.log("Operació de demanar estacions realitzada al BackEnd:");
+    console.log("Operació de demanar mesures realitzada al BackEnd:");
     this.stationService.obtainMeasurement()
         .subscribe(async response => {
               console.log("Resposta del BackEnd" + response.body);
@@ -46,7 +46,7 @@ export class MeasurementListPage implements OnInit {
                 this.llista = response.body as Measurement[];
                 this.llistaOriginal=this.llista;
                 const toast = await this.toastController.create({
-                  message: "Estaciones Actualizadas",
+                  message: "Actualized measurements",
                   duration: 2000,
                   position: 'bottom',
                 });
@@ -60,10 +60,10 @@ export class MeasurementListPage implements OnInit {
               console.log("Error del BackEnd" + err);
               //Podem filtrar per tots els altres codis
               if (err.status == 400) {
-                console.log("No hi han estacions");
+                console.log("No hi han mesures");
                 this.llista = null;
                 const toast = await this.toastController.create({
-                  message: "No hay estaciones en la base de datos",
+                  message: "No hay medidas en la base de datos",
                   duration: 2000,
                   position: 'bottom',
                 });
@@ -86,7 +86,7 @@ export class MeasurementListPage implements OnInit {
       return x < y ? -1 : x > y ? 1 : 0;
     });
     const toast = await this.toastController.create({
-      message: "Stations ordered",
+      message: "Measurements ordered",
       duration: 2000,
       position: 'bottom',
     });

@@ -13,7 +13,7 @@
       <div style="background: url('/assets/img/background2.png')" class="wrap-login100 p-l-20 p-r-20 p-t-20 p-b-20">
         <br>
         <!--Titol principal-->
-        <span class="login100-form-title">
+        <span class="login100-form-title" class="ion-text-wrap">
           "{{measurementName}}" Current Resistances:
         </span>
         <br>
@@ -28,7 +28,7 @@
         <div *ngIf="resistancesMeasurement">
           <ion-list *ngFor="let resistance of resistancesMeasurement.resistances" style="background: url('/assets/img/background2.png')">
             <ion-item>
-              <ion-label>{{resistance.name}}</ion-label>
+              <ion-label class="ion-text-wrap">{{resistance.name}}</ion-label>
               <ion-label style="padding-left:70px">{{resistance.value}}</ion-label>
               <ion-label class="ion-text-wrap">{{resistance.description}}</ion-label>
               <ion-label></ion-label>
@@ -39,7 +39,7 @@
             </ion-item>
           </ion-list>
         </div>
-        <ion-label *ngIf="resistancesMeasurement==false">There is not any resistance assigned to the measurement: {{measurementName}}</ion-label>
+        <ion-label *ngIf="resistancesMeasurement==false" class="ion-text-wrap">There is not any resistance assigned to the measurement: {{measurementName}}</ion-label>
         <br>
         <br>
         <span class="login100-form-title">
@@ -57,7 +57,7 @@
         <div *ngIf="unnasignedResistances">
           <ion-list *ngFor="let resistance of unnasignedResistances" style="background: url('/assets/img/background2.png')">
             <ion-item>
-              <ion-label>{{resistance.name}}</ion-label>
+              <ion-label class="ion-text-wrap">{{resistance.name}}</ion-label>
               <ion-label>{{resistance.value}}</ion-label>
               <ion-label class="ion-text-wrap">{{resistance.description}}</ion-label>
               <ion-button class="list-buttons2"  color="success"(click)="botoAsignar(resistance._id)" >

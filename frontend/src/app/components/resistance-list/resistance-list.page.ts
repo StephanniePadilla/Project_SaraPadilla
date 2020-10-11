@@ -35,7 +35,7 @@ export class ResistanceListPage implements OnInit {
   }
 
   llistaResistances() {
-    console.log("Operació de demanar bicis realitzada al BackEnd:");
+    console.log("Operació de demanar resistencies realitzada al BackEnd:");
     this.resistanceService.obtainResistances()
         .subscribe(async response => {
               console.log("Resposta del BackEnd" + response.body);

@@ -34,9 +34,9 @@
         </ion-list-header>
         <ion-list *ngFor="let element of llista" style="background: url('/assets/img/background2.png')">
           <ion-item>
-            <ion-label>{{element.name}}</ion-label>
+            <ion-label style="padding-right: 10px" class="ion-text-wrap">{{element.name}}</ion-label>
             <ion-label>{{element.state}}</ion-label>
-            <ion-label class="ion-text-wrap">{{element.description}}</ion-label>
+            <ion-label style="padding-top: 10px; padding-bottom: 10px" class="ion-text-wrap">{{element.description}}</ion-label>
             <ion-button class="list-buttons" shape="round" expand="full" color="dark" (click)="botoLlista(element._id, element.name)" >
               <ion-label style="padding-left:7px; padding-right:3px">  State </ion-label>
               <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
