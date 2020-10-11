@@ -5,9 +5,10 @@ Conte totes les rutes, requerin al controlador (subjectCtrl o studentCtrl)
 que es on estan implementades
  */
 const express = require('express')
-const api = express.Router()
 const resistanceCtrl = require('../controllers/resistance')
 const stationCtrl = require('../controllers/measurement')
+
+const api = express.Router()
 
 api.get('/getMeasurement',stationCtrl.getMeasurement),
 api.get('/getResistancesMEasurement/:measurementId',stationCtrl.getResistancesFromMeasurement),

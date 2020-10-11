@@ -6,9 +6,13 @@ A més indica que utilitzarem la URL api, exportant el modul creat a rutes
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const app = express()
-const api = require('./routes')
 const cors= require('cors')
+
+
+const api = require('./routes')
+
+
+const app = express()
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin","http://localhost:8100");
@@ -23,8 +27,9 @@ app.use((req, res, next) => {
 })
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-app.use('/api',api)
 app.use(cors())
 app.options('*',cors())
+
+app.use('/api',api)
 
 module.exports = app
